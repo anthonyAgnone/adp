@@ -1,0 +1,48 @@
+/* Home */
+.Home-ul {
+  padding: 0;
+}
+.Home-li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  border: 1px solid #eee;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.Home-link {
+  display: flex;
+  color: #000;
+}
+.Home-link:hover {
+  box-shadow: 1px 1px 5px #999;
+}
+.Home-placeholder {
+  background-color: #eee;
+  min-width: 100px;
+  margin-right: 24px;
+}
+.Home-img {
+  display: block;
+  height: 100%;
+}
+.Home-showMoreWrapper {
+  display: flex;
+  justify-content: center;
+}
+.Home-button {
+  width: 100%;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 16px 24px;
+  background: deepskyblue;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+}
+.Home-button:disabled {
+  background: grey;
+  cursor: not-allowed;
+}

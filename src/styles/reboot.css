@@ -22,12 +22,11 @@ body {
 
 * {
   box-sizing: inherit;
-}
-
-*::before,
-  *::after {
+  &::before,
+  &::after {
     box-sizing: inherit;
   }
+}
 
 @-ms-viewport {
   width: device-width;
@@ -68,12 +67,11 @@ template {
 
 a {
   background-color: transparent;
-}
-
-a:active,
-  a:hover {
+  &:active,
+  &:hover {
     outline: 0;
   }
+}
 
 abbr[title] {
   border-bottom: 1px dotted;
@@ -175,11 +173,13 @@ html input[type='button'] {
   cursor: pointer;
 }
 
-input[type='reset'],
-  input[type='submit'] {
+input {
+  &[type='reset'],
+  &[type='submit'] {
     -webkit-appearance: button;
     cursor: pointer;
   }
+}
 
 button[disabled],
 html input[disabled] {
@@ -192,33 +192,30 @@ button::-moz-focus-inner {
 }
 
 input {
-  line-height: normal;
-}
-
-input::-moz-focus-inner {
+  &::-moz-focus-inner {
     border: 0;
     padding: 0;
   }
-
-input[type='checkbox'],
-  input[type='radio'] {
+  line-height: normal;
+  &[type='checkbox'],
+  &[type='radio'] {
     box-sizing: border-box;
     padding: 0;
   }
-
-input[type='number']::-webkit-inner-spin-button,
-    input[type='number']::-webkit-outer-spin-button {
+  &[type='number'] {
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
       height: auto;
     }
-
-input[type='search'] {
-    -webkit-appearance: textfield;
   }
-
-input[type='search']::-webkit-search-cancel-button,
-    input[type='search']::-webkit-search-decoration {
+  &[type='search'] {
+    -webkit-appearance: textfield;
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration {
       -webkit-appearance: none;
     }
+  }
+}
 
 fieldset {
   border: 1px solid #c0c0c0;
@@ -268,11 +265,13 @@ p {
   margin-bottom: 1rem;
 }
 
-abbr[title],
-  abbr[data-original-title] {
+abbr {
+  &[title],
+  &[data-original-title] {
     cursor: help;
     border-bottom: 1px dotted #818a91;
   }
+}
 
 address {
   margin-bottom: 1rem;
@@ -310,19 +309,17 @@ blockquote {
 a {
   color: #0275d8;
   text-decoration: none;
-}
-
-a:focus,
-  a:hover {
+  &:focus,
+  &:hover {
     color: #014c8c;
     text-decoration: underline;
   }
-
-a:focus {
+  &:focus {
     outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px;
   }
+}
 
 pre {
   margin-top: 0;
@@ -416,131 +413,4 @@ input[type='search'] {
 
 output {
   display: inline-block;
-}
-
-/* Global styles */
-
-html,
-body {
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-a {
-  color: deepskyblue;
-  text-decoration: none;
-}
-
-/* Header styles */
-
-.header h1 {
-    font-weight: 100;
-    text-align: center;
-  }
-
-.header nav a {
-      font-size: 18px;
-      margin-right: 16px;
-    }
-
-.header nav .isActive {
-      font-weight: bold;
-      text-decoration: underline;
-    }
-
-/* Home */
-
-.Home-ul {
-  padding: 0;
-}
-
-.Home-li {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  margin-bottom: 16px;
-  border: 1px solid #eee;
-  overflow: hidden;
-  border-radius: 5px;
-}
-
-.Home-link {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  color: #000;
-}
-
-.Home-link:hover {
-  box-shadow: 1px 1px 5px #999;
-}
-
-.Home-placeholder {
-  background-color: #eee;
-  min-width: 100px;
-  margin-right: 24px;
-}
-
-.Home-img {
-  display: block;
-  height: 100%;
-}
-
-.Home-showMoreWrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-}
-
-.Home-button {
-  width: 100%;
-  font-size: 16px;
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 16px 24px;
-  background: deepskyblue;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-}
-
-.Home-button:disabled {
-  background: grey;
-  cursor: not-allowed;
-}
-
-/* About */
-
-.About-infoHeader {
-  text-align: center;
-}
-
-.About-img {
-  height: 120px;
-  width: auto;
-}
-
-.About-author {
-  margin-bottom: 72px;
-}
-
-/* Post */
-
-.Post-placeholder {
-  height: 366px;
-  background-color: #eee;
 }

@@ -1,0 +1,16 @@
+/* Global styles */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+a {
+  color: deepskyblue;
+  text-decoration: none;
+}
