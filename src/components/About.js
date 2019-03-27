@@ -8,16 +8,18 @@ const About = ({ data: { loading, error, authors } }) => {
     return (
       <div>
         {authors.map(author => (
-          <div className='About-author' key={author.id}>
-            <div className='About-infoHeader'>
+          <div className='authorWrapper' key={author.id}>
+            <div className='infoHeader'>
               <img
-                className='About-img'
-                alt={author.name}
+                className='avatar'
+                alt={`${author.name} avatar`}
                 src={`https://media.graphcms.com/resize=w:100,h:100,fit:crop/${author.avatar.handle}`}
               />
-              <h1>Hello! My name is {author.name}</h1>
+              <h1>My name is {author.name}</h1>
             </div>
-            <p>{author.bibliography}</p>
+            <div className='bibliography'>
+              <p>{author.bibliography}</p>
+            </div>
           </div>
         ))}
       </div>
