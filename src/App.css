@@ -310,6 +310,12 @@ header {
   width: 100vw;
   position: relative;
 }
+header .menu {
+    color: #fff;
+  }
+header .menu.collapsed {
+      display: none;
+    }
 header .logo {
     position: absolute;
     z-index: 1000;
@@ -320,10 +326,56 @@ header .logo {
     left: 50%;
     margin-top: -25px;
     margin-left: -25px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
   }
-header .logo h1 {
+header .logo .logoButton {
+      border: none;
+      color: #fff;
+      background: none;
+      font-size: 1.6em;
+      display: block;
+    }
+header .logo .navMenu {
+      position: absolute;
+      width: 200px;
+      height: 100px;
+      top: calc(50% + 25px);
+      z-index: 9999;
+      background-color: #000;
       color: #fff;
     }
+header .logo .navMenu ul {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        list-style: none;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+                justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+                align-items: center;
+      }
+header .logo .navMenu ul li:focus {
+          background: #fff;
+          color: #000;
+        }
 header .crossSection .verticalTop {
       height: calc(50% - 25px);
       width: 50px;

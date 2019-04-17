@@ -4,6 +4,12 @@ header {
   height: 100vh;
   width: 100vw;
   position: relative;
+  .menu {
+    color: #fff;
+    &.collapsed {
+      display: none;
+    }
+  }
   .logo {
     position: absolute;
     z-index: 1000;
@@ -14,8 +20,39 @@ header {
     left: 50%;
     margin-top: -25px;
     margin-left: -25px;
-    h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logoButton {
+      border: none;
       color: #fff;
+      background: none;
+      font-size: 1.6em;
+      display: block;
+    }
+    .navMenu {
+      position: absolute;
+      width: 200px;
+      height: 100px;
+      top: calc(50% + 25px);
+      z-index: 9999;
+      background-color: #000;
+      color: #fff;
+      ul {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        li:focus {
+          background: #fff;
+          color: #000;
+        }
+      }
     }
   }
   .crossSection {
