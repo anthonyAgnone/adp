@@ -1,48 +1,42 @@
-/* Home */
-.Home-ul {
-  padding: 0;
-}
-.Home-li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-  border: 1px solid #eee;
-  overflow: hidden;
-  border-radius: 5px;
-}
-.Home-link {
-  display: flex;
-  color: #000;
-}
-.Home-link:hover {
-  box-shadow: 1px 1px 5px #999;
-}
-.Home-placeholder {
-  background-color: #eee;
-  min-width: 100px;
-  margin-right: 24px;
-}
-.Home-img {
-  display: block;
-  height: 100%;
-}
-.Home-showMoreWrapper {
-  display: flex;
-  justify-content: center;
-}
-.Home-button {
-  width: 100%;
-  font-size: 16px;
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 16px 24px;
-  background: deepskyblue;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-}
-.Home-button:disabled {
-  background: grey;
-  cursor: not-allowed;
+section {
+  width: 100vw;
+  overflow: scroll;
+  ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    li {
+      margin-bottom: 80vh;
+      width: 100%;
+      align-items: center;
+      a {
+        width: 50%;
+        padding-right: 2.5vw;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      .desc {
+        min-width: 50%;
+        height: auto;
+        text-align: center;
+        h1 {
+          font-size: 2.5rem;
+        }
+      }
+    }
+    .right {
+      flex-direction: row-reverse;
+      a {
+        padding-left: 2.5vw;
+        padding-right: 0;
+      }
+    }
+  }
+  /* .show-more {
+    .home-btn {
+
+    }
+  } */
 }

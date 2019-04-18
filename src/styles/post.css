@@ -1,5 +1,18 @@
-/* Post */
-.Post-placeholder {
-  height: 366px;
-  background-color: #eee;
+.back-arrow {
+  position: absolute;
+  top: 15px;
+  left: 10vw;
+  color: #fff;
+  text-decoration: none;
+}
+article {
+  padding-left: 8vw;
+  h1 {
+    margin-bottom: 20px;
+  }
+  img {
+    margin-bottom: 20px;
+    height: auto;
+    width: auto;
+  }
 }

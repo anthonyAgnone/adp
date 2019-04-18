@@ -2,109 +2,31 @@
 
 header {
   height: 100vh;
-  width: 100vw;
-  position: relative;
-  .menu {
-    color: #fff;
-    &.collapsed {
-      display: none;
-    }
+  position: sticky;
+  top: 0;
+  width: 5vw;
+  background-color: #000;
+  transition: width 1s ease;
+  &.expanded {
+    width: 30vw;
   }
   .logo {
-    position: absolute;
     z-index: 1000;
-    width: 50px;
-    height: 50px;
     background-color: #000;
-    top: 50%;
-    left: 50%;
-    margin-top: -25px;
-    margin-left: -25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0 3px;
     .logoButton {
-      border: none;
+      border: 1px solid #fff;
       color: #fff;
       background: none;
       font-size: 1.6em;
-      display: block;
-    }
-    .navMenu {
-      position: absolute;
-      width: 200px;
-      height: 100px;
-      top: calc(50% + 25px);
-      z-index: 9999;
-      background-color: #000;
-      color: #fff;
-      ul {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        li:focus {
-          background: #fff;
-          color: #000;
-        }
-      }
+      cursor: pointer;
     }
   }
-  .crossSection {
-    .verticalTop {
-      height: calc(50% - 25px);
-      width: 50px;
-      background: #000;
-      position: absolute;
-      left: 50%;
-      margin-left: -25px;
-      top: 0;
-    }
-    .verticalBottom {
-      height: calc(50% - 25px);
-      width: 50px;
-      background: #000;
-      position: absolute;
-      left: 50%;
-      margin-left: -25px;
-      top: calc(50% + 25px);
-    }
-    .horizontalLeft {
-      height: 50px;
-      width: calc(50% - 25px);
-      background: #000;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      margin-top: -25px;
-    }
-    .horizontalRight {
-      height: 50px;
-      width: calc(50% - 25px);
-      background: #000;
-      position: absolute;
-      left: calc(50% + 25px);
-      top: 50%;
-      margin-top: -25px;
-    }
-  }
-  nav {
-    width: 75%;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px 0;
-    a {
-      font-size: 18px;
-      margin-right: 16px;
-    }
-    .isActive {
-      font-weight: bold;
-      text-decoration: underline;
-    }
+}
+
+.home {
+  header {
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 }

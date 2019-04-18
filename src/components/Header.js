@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import { Wrapper, Button, Menu, MenuItem } from "react-aria-menubutton";
-// import Nav from "./Nav";
-
-const menuItemWords = ["foo", "bar", "baz"];
 export default class Header extends Component {
   constructor(props) {
     super(props);
@@ -18,33 +14,14 @@ export default class Header extends Component {
     }));
   };
 
-  handleSelection = (value, event) => {
-    console.log(value, event);
-  };
-
   render() {
-    const menuItems = menuItemWords.map((word, i) => {
-      return (
-        <li key={i}>
-          <MenuItem className="navMenuItem">{word}</MenuItem>
-        </li>
-      );
-    });
     return (
-      <header>
-        {/* <Nav /> */}
-        <div className="crossSection">
-          <div className="verticalTop" />
-          <div className="verticalBottom" />
-          <div className="horizontalLeft" />
-          <div className="horizontalRight" />
+      <header className={this.state.expanded ? "expanded" : "collapsed"}>
+        <div className="logo center-both w100">
+          <button className="logoButton w-h100" onClick={this.handleClick}>
+            A D
+          </button>
         </div>
-        <Wrapper className="logo" onSelection={this.handleSelection}>
-          <Button className="logoButton">A D</Button>
-          <Menu className="navMenu">
-            <ul>{menuItems}</ul>
-          </Menu>
-        </Wrapper>
       </header>
     );
   }
