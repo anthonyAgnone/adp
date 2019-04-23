@@ -331,6 +331,24 @@ a {
     -webkit-flex-direction: row;
             flex-direction: row;
   }
+.align-items-center {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.justify-content-center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.flex-center {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
 .center-hori {
   position: absolute;
   left: 50%;
@@ -374,10 +392,53 @@ header {
   background-color: #000;
   -webkit-transition: width 1s ease;
   transition: width 1s ease;
+  z-index: 1000;
+  overflow: hidden;
 }
+header a {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    color: #fff;
+    text-decoration: none;
+    margin: 3rem 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    position: relative;
+  }
+header a::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      background-color: #fff;
+      content: "";
+      opacity: 0;
+    }
+header a:hover {
+      color: #684657;
+      text-decoration: none;
+    }
+header a:hover::after {
+        width: 100%;
+        background-color: #684657;
+        opacity: 1;
+      }
 header.expanded {
     width: 30vw;
   }
+header.expanded a {
+      opacity: 1;
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
 header .logo {
     z-index: 1000;
     background-color: #000;
@@ -397,7 +458,6 @@ header .logo .logoButton {
   }
 section {
   width: 100vw;
-  overflow: scroll;
   /* .show-more {
     .home-btn {
 
@@ -423,6 +483,7 @@ section ul li a {
 section ul li a img {
           width: 100%;
           height: auto;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0);
         }
 section ul li .desc {
         min-width: 50%;

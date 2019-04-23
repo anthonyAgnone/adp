@@ -36,6 +36,19 @@ a {
   }
 }
 
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
 .center-hori {
   position: absolute;
   left: 50%;
