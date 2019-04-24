@@ -10,6 +10,7 @@
     "graphql-tag": "^2.10.1",
     "postcss-normalize": "^7.0.1",
     "postcss-use": "^3.0.0",
+    "radium": "^0.25.1",
     "react": "^16.8.4",
     "react-apollo": "^2.5.2",
     "react-aria-menubutton": "^6.1.0",

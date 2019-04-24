@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
@@ -31,10 +31,6 @@ const formatDate = date => {
   return `${monthName} ${formatedDate[2]}, ${formatedDate[0]}`;
 };
 
-const updateBody = () => {
-  document.querySelector("body").className = "home";
-};
-
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 100,
   (x - window.innerWidth / 2) / 100,
@@ -51,15 +47,16 @@ const Home = ({
 }) => {
   if (error) return <h1>Error fetching posts!</h1>;
   if (posts && postsConnection) {
-    updateBody();
+    useEffect(() => {
+      document.querySelector("body").className = "home";
+    });
     const areMorePosts = posts.length < postsConnection.aggregate.count;
     const [props, set] = useSpring(() => ({
       xys: [0, 0, 1],
       boxShadow: 0,
-      zIndex: 9999,
+      zIndex: 9998,
       config: { mass: 5, tension: 350, friction: 40 }
     }));
-
     return (
       <section>
         <ul className="flex f-d-c">
@@ -67,7 +64,7 @@ const Home = ({
             <li
               id={`post${index}`}
               onMouseEnter={() => {
-                document.getElementById(`post${index}`).style.zIndex = 9999;
+                document.getElementById(`post${index}`).style.zIndex = 9998;
               }}
               onMouseLeave={() => {
                 setTimeout(
@@ -84,10 +81,16 @@ const Home = ({
                     set({ xys: calc(x, y) })
                   }
                   onMouseLeave={() => {
-                    set({ xys: [0, 0, 1], boxShadow: 0 });
+                    set({ xys: [0, 0, 1], boxShadow: 0, zIndex: 1 });
+                    document
+                      .querySelector(".newCursor")
+                      .classList.remove("cursorHover");
                   }}
                   onMouseEnter={() => {
                     set({ boxShadow: 0.8 });
+                    document
+                      .querySelector(".newCursor")
+                      .classList.add("cursorHover");
                   }}
                   style={{
                     transform: props.xys.interpolate(trans),
@@ -105,7 +108,18 @@ const Home = ({
                 />
               </Link>
               <div className="desc">
-                <Link to={`/post/${post.id}`}>
+                <Link
+                  to={`/post/${post.id}`}
+                  onMouseEnter={() =>
+                    document
+                      .querySelector(".newCursor")
+                      .classList.add("cursorHover")
+                  }
+                  onMouseLeave={() =>
+                    document
+                      .querySelector(".newCursor")
+                      .classList.remove("cursorHover")
+                  }>
                   <h1>{post.title}</h1>
                 </Link>
                 <p>{formatDate(post.date)}</p>

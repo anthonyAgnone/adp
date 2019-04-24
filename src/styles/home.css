@@ -1,4 +1,4 @@
-section {
+/* section {
   width: 100vw;
   ul {
     width: 100%;
@@ -34,9 +34,27 @@ section {
       }
     }
   }
-  /* .show-more {
+  .show-more {
     .home-btn {
 
     }
-  } */
+  }
+} */
+
+section {
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      height: 100vh;
+      margin-bottom: 40vh;
+      a {
+        .imgLink {
+          height: 60%;
+          width: 100%;
+          overflow: hidden;
+        }
+      }
+    }
+  }
 }

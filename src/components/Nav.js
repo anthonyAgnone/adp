@@ -1,32 +1,41 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Nav = ({ data: { loading, navigations, error } }) => {
-  if (error) return <h1>Error fetching Naviation</h1>
-  if (!loading) {
-    return (
-      <nav>
-        {navigations.map((link, index) => (
-          <NavLink to={link.route} className='navLink' activeClassName='isActive' key={index}>
-            {link.title}
-          </NavLink>
-        ))}
-      </nav>
-    )
-  }
-  return <nav />
-}
+const Nav = handleClick => {
+  return (
+    <ul className="w-h100 flex f-d-c justify-content-center">
+      <li>
+        <Link to="/" onClick={handleClick}>
+          Home
+        </Link>
+      </li>
+      <li>
+        <Link to="/about" onClick={handleClick}>
+          About Me
+        </Link>
+      </li>
+      <li>
+        <Link to="/process" onClick={handleClick}>
+          My Process
+        </Link>
+      </li>
+      <li>
+        <Link to="/commissions" onClick={handleClick}>
+          Commissions
+        </Link>
+      </li>
+      <li>
+        <Link to="/" onClick={handleClick}>
+          Patreon
+        </Link>
+      </li>
+      <li>
+        <Link to="/contact" onClick={handleClick}>
+          Contact
+        </Link>
+      </li>
+    </ul>
+  );
+};
 
-export const navigations = gql`
-  query navigations {
-    navigations {
-      id
-      title
-      route
-    }
-  }
-`
-
-export default graphql(navigations)(Nav)
+export default Nav;
