@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react'
 
-const Logo = props => {
+const Logo = ({ expanded, handleClick }) => {
   return (
-    <div className="logo w100">
+    <div className='logo w100'>
       <button
         className={`logoButton w100 center-both ${
-          props.expanded ? "expanded" : "collapsed"
+          expanded ? 'expanded' : 'collapsed'
         }`}
-        onClick={props.handleClick}
+        onClick={handleClick}
         onMouseEnter={() =>
-          document.querySelector(".newCursor").classList.add("cursorHover")
+          document.querySelector('.newCursor').classList.add('cursorHover')
         }
         onMouseLeave={() =>
-          document.querySelector(".newCursor").classList.remove("cursorHover")
+          document.querySelector('.newCursor').classList.remove('cursorHover')
         }>
         A D <span>- MENU -</span>
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo

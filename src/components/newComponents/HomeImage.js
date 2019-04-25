@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSpring, animated } from 'react-spring'
 
@@ -17,9 +17,10 @@ const HomeImage = ({ id, title, handle, division }) => {
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
     boxShadow: 0,
-    zIndex: 1,
     config: { mass: 15, tension: 550, friction: 40 }
   }))
+
+  const [currentZ, setZ] = useState(1)
   return (
     <Link
       className='w-h100 flex f-d-c justify-content-center'
@@ -30,15 +31,17 @@ const HomeImage = ({ id, title, handle, division }) => {
           set({ xys: calc(x, y, division) })
         }
         onMouseEnter={() => {
-          set({ boxShadow: 0.8, zIndex: 9999 })
+          set({ boxShadow: 0.8 })
+          setTimeout(() => setZ(1001), 200)
         }}
         onMouseLeave={() => {
-          set({ xys: [0, 0, 1], boxShadow: 0, zIndex: 1 })
+          set({ xys: [0, 0, 1], boxShadow: 0 })
+          setTimeout(() => setZ(1), 300)
         }}
         style={{
           transform: props.xys.interpolate(trans),
           boxShadow: props.boxShadow.interpolate(shadowo),
-          zIndex: props.zIndex
+          zIndex: currentZ
         }}>
         <img
           className='img-fit'
