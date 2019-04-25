@@ -8,7 +8,7 @@ const RightColumn = ({ id, coverImage, date, slug, title, i }) => {
     return (
       <li
         className='preview flex f-d-c justify-content-center align-items-center'
-        id={slug}>
+        id={`${slug}li`}>
         <HomeImage
           slug={slug}
           i={i}

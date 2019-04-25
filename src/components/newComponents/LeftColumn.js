@@ -7,8 +7,8 @@ const LeftColumn = ({ id, coverImage, date, slug, title, i }) => {
   if (i % 2 === 0)
     return (
       <li
-        className='preview flex f-d-c justify-content-center align-items-center'
-        id={slug}>
+        className={`${slug}li preview flex f-d-c justify-content-center align-items-center`}
+        id={`${slug}li`}>
         <HomeImage
           slug={slug}
           i={i}

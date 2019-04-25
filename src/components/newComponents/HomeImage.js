@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSpring, animated } from 'react-spring'
 
@@ -13,16 +13,48 @@ const trans = (x, y, s) =>
 
 const shadowo = x => `0 10px 40px rgba(0,0,0,${x})`
 
-const HomeImage = ({ id, title, handle, division }) => {
+const HomeImage = ({ id, slug, title, handle, division }) => {
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
     boxShadow: 0,
     config: { mass: 15, tension: 550, friction: 40 }
   }))
 
+  const [inView, setInView] = useState(false)
+
   const [currentZ, setZ] = useState(1)
+
+  const [yTrans, setY] = useState(0)
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => isInView(slug), true)
+    return () => {
+      window.removeEventListener('scroll', isInView)
+    }
+  }, [])
+
+  const isInView = slug => {
+    const parentLi = document.getElementById(`${slug}li`)
+    const boundries = parentLi.getBoundingClientRect()
+    const scrollTop = document.body.scrollTop
+    const windowH = window.innerHeight
+    let windowBottom = scrollTop + windowH
+    const startPos = boundries.top + scrollTop + 200
+    const stopPos = boundries.bottom + windowBottom - 300
+    if (startPos < windowBottom && stopPos > windowBottom) {
+      setY(Math.abs(windowBottom - startPos))
+      if (parentLi.classList.contains('inView')) return
+      parentLi.classList.add('inView')
+      setInView(!inView)
+    } else if (parentLi.classList.contains('inView')) {
+      parentLi.classList.remove('inView')
+      setInView(!inView)
+    }
+  }
+
   return (
     <Link
+      style={{ transform: `translate(0px, ${yTrans * 0.3}px)` }}
       className='w-h100 flex f-d-c justify-content-center'
       to={`/post/${id}`}>
       <animated.div
@@ -32,11 +64,17 @@ const HomeImage = ({ id, title, handle, division }) => {
         }
         onMouseEnter={() => {
           set({ boxShadow: 0.8 })
-          setTimeout(() => setZ(1001), 200)
+          setTimeout(
+            () => (document.querySelector('main').style.zIndex = 9999),
+            200
+          )
         }}
         onMouseLeave={() => {
           set({ xys: [0, 0, 1], boxShadow: 0 })
-          setTimeout(() => setZ(1), 300)
+          setTimeout(
+            () => (document.querySelector('main').style.zIndex = 0),
+            300
+          )
         }}
         style={{
           transform: props.xys.interpolate(trans),
@@ -44,7 +82,7 @@ const HomeImage = ({ id, title, handle, division }) => {
           zIndex: currentZ
         }}>
         <img
-          className='img-fit'
+          className='homeImage'
           alt={title}
           src={
             handle
