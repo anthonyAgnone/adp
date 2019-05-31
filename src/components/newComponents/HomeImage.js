@@ -8,8 +8,7 @@ const calc = (x, y, division) => [
   1.04
 ]
 
-const trans = (x, y, s) =>
-  `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
+const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 
 const shadowo = x => `0 10px 40px rgba(0,0,0,${x})`
 
@@ -22,7 +21,7 @@ const HomeImage = ({ id, slug, title, handle, division }) => {
 
   const [inView, setInView] = useState(false)
 
-  const [currentZ, setZ] = useState(1)
+  const [currentZ] = useState(1)
 
   const [yTrans, setY] = useState(0)
 
@@ -35,54 +34,50 @@ const HomeImage = ({ id, slug, title, handle, division }) => {
 
   const isInView = slug => {
     const parentLi = document.getElementById(`${slug}li`)
-    const boundries = parentLi.getBoundingClientRect()
-    const scrollTop = document.body.scrollTop
-    const windowH = window.innerHeight
-    let windowBottom = scrollTop + windowH
-    const startPos = boundries.top + scrollTop + 200
-    const stopPos = boundries.bottom + windowBottom - 300
-    if (startPos < windowBottom && stopPos > windowBottom) {
-      setY(Math.abs(windowBottom - startPos))
-      if (parentLi.classList.contains('inView')) return
-      parentLi.classList.add('inView')
-      setInView(!inView)
-    } else if (parentLi.classList.contains('inView')) {
-      parentLi.classList.remove('inView')
-      setInView(!inView)
+    if (parentLi) {
+      const boundries = parentLi.getBoundingClientRect()
+      const scrollTop = document.body.scrollTop
+      const windowH = window.innerHeight
+      let windowBottom = scrollTop + windowH
+      const startPos = boundries.top + scrollTop + 200
+      const stopPos = boundries.bottom + windowBottom - 300
+      if (startPos < windowBottom && stopPos > windowBottom) {
+        setY(Math.abs(windowBottom - startPos))
+        if (parentLi.classList.contains('inView')) return
+        parentLi.classList.add('inView')
+        setInView(!inView)
+      } else if (parentLi.classList.contains('inView')) {
+        parentLi.classList.remove('inView')
+        setInView(!inView)
+      }
     }
   }
 
   return (
     <Link
       style={{ transform: `translate(0px, ${yTrans * 0.3}px)` }}
-      className='w-h100 flex f-d-c justify-content-center'
-      to={`/post/${id}`}>
+      className="w-h100 flex f-d-c justify-content-center"
+      to={`/post/${id}`}
+    >
       <animated.div
-        className='imgLink'
-        onMouseMove={({ clientX: x, clientY: y }) =>
-          set({ xys: calc(x, y, division) })
-        }
+        className="imgLink"
+        onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y, division) })}
         onMouseEnter={() => {
           set({ boxShadow: 0.8 })
-          setTimeout(
-            () => (document.querySelector('main').style.zIndex = 9999),
-            200
-          )
+          setTimeout(() => (document.querySelector('main').style.zIndex = 9999), 200)
         }}
         onMouseLeave={() => {
           set({ xys: [0, 0, 1], boxShadow: 0 })
-          setTimeout(
-            () => (document.querySelector('main').style.zIndex = 0),
-            300
-          )
+          setTimeout(() => (document.querySelector('main').style.zIndex = 0), 300)
         }}
         style={{
           transform: props.xys.interpolate(trans),
           boxShadow: props.boxShadow.interpolate(shadowo),
           zIndex: currentZ
-        }}>
+        }}
+      >
         <img
-          className='homeImage'
+          className="homeImage"
           alt={title}
           src={
             handle

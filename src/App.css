@@ -534,6 +534,21 @@ section ul li a .imgLink img {
   -webkit-transition: width 0.8s ease;
   transition: width 0.8s ease;
 }
+@media (min-width: 320px) and (max-width: 767px) {
+.navigation {
+    width: 100vw;
+    height: 5vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    overflow: hidden;
+    -webkit-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+    -webkit-transform: translateX(0);
+            transform: translateX(0)
+}
+  }
 .navigation.expanded {
     width: 30vw;
   }
