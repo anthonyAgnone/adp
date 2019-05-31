@@ -31,8 +31,8 @@
     "eject": "react-scripts eject",
     "build:css": "postcss src/styles/main.css -o src/App.css",
     "watch:css": "postcss src/styles/main.css -o src/App.css -w",
-    "start": "npm-run-all -p watch:css start-js",
-    "start-js": "react-scripts start",
+    "dev": "npm-run-all -p watch:css start-js",
+    "start": "react-scripts start",
     "build-js": "react-scripts build"
   },
   "eslintConfig": {
