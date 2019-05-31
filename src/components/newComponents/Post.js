@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
 import Markdown from 'react-markdown'
@@ -7,16 +7,13 @@ import { Link } from 'react-router-dom'
 const Post = ({ data: { loading, error, post } }) => {
   if (error) return <h1>Error fetching the post!</h1>
   if (!loading) {
-    useEffect(() => {
-      document.querySelector('body').className = 'post'
-    })
     return (
-      <div>
-        <Link className='back-arrow' to='/'>
+      <div class="postWrapper">
+        <Link className="back-arrow" to="/">
           {' '}
           &lt; Back{' '}
         </Link>
-        <article className='center-both'>
+        <article className="center-both">
           <h1>{post.title}</h1>
           <div>
             <img
