@@ -6,31 +6,25 @@ import RightColumn from './RightColumn'
 
 const POSTS_PER_PAGE = 4
 
-const Home = ({
-  data: { loading, error, posts, postsConnection, networkStatus },
-  loadMorePosts
-}) => {
+const Home = ({ data: { loading, error, posts, postsConnection, networkStatus }, loadMorePosts }) => {
   if (error) return <h1>Error fetching posts!</h1>
   if (posts && postsConnection) {
     const areMorePosts = posts.length < postsConnection.aggregate.count
     return (
-      <section className='w100 flex'>
-        <ul className='w50'>
+      <section className="w100 flex">
+        <ul className="w50">
           {posts.map((post, i) => (
             <LeftColumn key={i} {...post} i={i} />
           ))}
         </ul>
-        <ul className='w50'>
+        <ul className="w50">
           {posts.map((post, i) => (
             <RightColumn key={i} {...post} i={i} />
           ))}
         </ul>
-        <div className='show-more'>
+        <div className="show-more">
           {areMorePosts ? (
-            <button
-              className='home-btn'
-              disabled={loading}
-              onClick={() => loadMorePosts()}>
+            <button className="home-btn" disabled={loading} onClick={() => loadMorePosts()}>
               {loading ? 'Loading...' : 'Show More Posts'}
             </button>
           ) : (

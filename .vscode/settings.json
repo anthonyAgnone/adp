@@ -3,5 +3,6 @@
     "prettier.singleQuote": true,
     "prettier.jsxSingleQuote": true,
     "editor.tabSize": 2,
-    "prettier.semi": false
+    "prettier.semi": false,
+    "git.ignoreLimitWarning": true
 }

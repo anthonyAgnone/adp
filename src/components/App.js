@@ -1,22 +1,20 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 
 import Home from './newComponents/Home'
 import Post from './newComponents/Post'
 import Navigation from './newComponents/Navigation'
 import Header from './newComponents/Header'
 
-const App = () => (
-  <Router>
-    <div className='app-wrap'>
-      <Header />
-      <main>
-        <Route exact path='/' component={Home} />
-        <Route path='/post/:slug' component={Post} />
-      </main>
-      <Navigation />
-    </div>
-  </Router>
+const App = props => (
+  <div className="app-wrap">
+    {window.location.href.indexOf('post') < 1 ? <Header /> : ''}
+    <main>
+      <Route exact path="/" component={Home} />
+      <Route path="/post/:slug" component={Post} />
+    </main>
+    <Navigation />
+  </div>
 )
 
-export default App
+export default withRouter(App)
