@@ -792,6 +792,29 @@ article img {
 /* desktop */
 @media (min-width: 767px) {
 }
+/* About */
+.pageWrapper {
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 5em;
+}
+.pageWrapper .authorWrapper .infoHeader {
+      text-align: center;
+    }
+.pageWrapper .authorWrapper .infoHeader img {
+        height: 120px;
+        width: auto;
+        margin-bottom: 25px;
+      }
+.pageWrapper .authorWrapper .infoHeader h1 {
+        margin-bottom: 25px;
+      }
+.pageWrapper .authorWrapper .bibliography {
+      width: 75%;
+      margin: 0 auto;
+    }
 /* @import "header.css";
 @import "nav.css";
 @import "logo.css";

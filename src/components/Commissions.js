@@ -1,10 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react'
 
 const Commissions = () => {
   useEffect(() => {
-    document.querySelector("body").className = "commission";
-  });
-  return <div>Make me work and then pay me</div>;
-};
+    document.querySelector('body').className = 'commission'
+  })
+  return (
+    <div class="pageWrapper">
+      <h1>Coming Soon</h1>
+    </div>
+  )
+}
 
-export default Commissions;
+export default Commissions

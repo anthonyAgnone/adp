@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Nav = handleClick => {
   return (
@@ -25,7 +25,7 @@ const Nav = handleClick => {
         </Link>
       </li>
       <li>
-        <Link to="/" onClick={handleClick}>
+        <Link to="/patreon" onClick={handleClick}>
           Patreon
         </Link>
       </li>
@@ -35,7 +35,7 @@ const Nav = handleClick => {
         </Link>
       </li>
     </ul>
-  );
-};
+  )
+}
 
-export default Nav;
+export default Nav

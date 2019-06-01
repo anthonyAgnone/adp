@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React from 'react'
 
 const Contact = () => {
-  useEffect(() => {
-    document.querySelector("body").className = "contact";
-  });
-  return <div>Contact form goes here</div>;
-};
+  return (
+    <div class="pageWrapper">
+      <h1>Coming soon</h1>
+    </div>
+  )
+}
 
-export default Contact;
+export default Contact

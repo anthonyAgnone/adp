@@ -3,6 +3,11 @@ import { Route, withRouter } from 'react-router-dom'
 
 import Home from './newComponents/Home'
 import Post from './newComponents/Post'
+import About from './About'
+import Commissions from './Commissions'
+import Patreon from './Patreon'
+import Process from './Process'
+import Contact from './Contact'
 import Navigation from './newComponents/Navigation'
 import Header from './newComponents/Header'
 
@@ -12,6 +17,10 @@ const App = props => (
     <main>
       <Route exact path="/" component={Home} />
       <Route path="/post/:slug" component={Post} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/process" component={Process} />
+      <Route exact path="/commissions" component={Commissions} />
+      <Route exact path="/contact" component={Contact} />
     </main>
     {props.location.pathname.length > 1 ? <Navigation page={'notHome'} /> : <Navigation page={'home'} />}
   </div>

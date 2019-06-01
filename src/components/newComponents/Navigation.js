@@ -26,9 +26,9 @@ const Navigation = ({ page }) => {
       <NavLink className="mt3" to="/commissions" onClick={handleClick}>
         Commissions
       </NavLink>
-      <NavLink className="mt1 mb1" to="http://www.patreon.com" onClick={handleClick}>
+      <a target="_blank" href="http://patreon.com">
         Patreon
-      </NavLink>
+      </a>
       <NavLink className="mt1 mb1" to="/contact" onClick={handleClick}>
         Contact
       </NavLink>

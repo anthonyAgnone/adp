@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react'
 
 const Process = () => {
-  useEffect(() => {
-    document.querySelector("body").className = "contact";
-  });
-  return <div>These are the tools and processes</div>;
-};
+  return (
+    <div class="pageWrapper">
+      <h1>Coming Soon</h1>
+    </div>
+  )
+}
 
-export default Process;
+export default Process
