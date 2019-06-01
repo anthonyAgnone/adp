@@ -4,20 +4,20 @@ import gql from 'graphql-tag'
 import LeftColumn from './LeftColumn'
 import RightColumn from './RightColumn'
 
-const POSTS_PER_PAGE = 4
+const POSTS_PER_PAGE = 100
 
 const Home = ({ data: { loading, error, posts, postsConnection, networkStatus }, loadMorePosts }) => {
   if (error) return <h1>Error fetching posts!</h1>
   if (posts && postsConnection) {
     const areMorePosts = posts.length < postsConnection.aggregate.count
     return (
-      <section className="w100 flex">
-        <ul className="w50">
+      <section className="w100 flex mobNorm">
+        <ul className="w50 mobw50">
           {posts.map((post, i) => (
             <LeftColumn key={i} {...post} i={i} />
           ))}
         </ul>
-        <ul className="w50">
+        <ul className="w50 mobw50">
           {posts.map((post, i) => (
             <RightColumn key={i} {...post} i={i} />
           ))}

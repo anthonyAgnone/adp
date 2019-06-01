@@ -494,6 +494,24 @@ main {
     -webkit-transition: all 2s ease;
     transition: all 2s ease;
   }
+@media (min-width: 320px) and (max-width: 767px) {
+.mobw50 {
+    width: 100vw
+}
+  }
+@media (min-width: 320px) and (max-width: 767px) {
+.mobNorm {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+            flex-direction: column
+}
+  }
+@media (min-width: 320px) and (max-width: 767px) {
+.mobDNone {
+    display: none
+}
+  }
 section ul {
     margin: 0;
     padding: 0;
@@ -502,6 +520,24 @@ section ul li {
       height: 100vh;
       margin-bottom: 40vh;
     }
+@media (min-width: 320px) and (max-width: 767px) {
+section ul li {
+        margin-bottom: 10vh
+    }
+        section ul li p {
+          margin-top: 0;
+          margin-bottom: 1rem;
+          position: absolute;
+          top: 75%;
+          left: 0;
+          width: 100%;
+          text-align: center;
+          background: rgba(30, 30, 30, 0.45);
+          height: 12%;
+          font-size: 2em;
+          padding-top: 7px;
+        }
+      }
 section ul li a .imgLink {
           height: 60%;
           width: 100%;
@@ -534,21 +570,6 @@ section ul li a .imgLink img {
   -webkit-transition: width 0.8s ease;
   transition: width 0.8s ease;
 }
-@media (min-width: 320px) and (max-width: 767px) {
-.navigation {
-    width: 100vw;
-    height: 5vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10000;
-    overflow: hidden;
-    -webkit-transition: all 0.8s ease;
-    transition: all 0.8s ease;
-    -webkit-transform: translateX(0);
-            transform: translateX(0)
-}
-  }
 .navigation.expanded {
     width: 30vw;
   }
@@ -564,6 +585,35 @@ section ul li a .imgLink img {
         -webkit-animation: showUp 0.5s forwards;
                 animation: showUp 0.5s forwards;
       }
+@media (min-width: 320px) and (max-width: 767px) {
+.navigation {
+    width: 100vw;
+    height: 20vw;
+    position: fixed;
+    left: 0;
+    z-index: 10000;
+    -webkit-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+    -webkit-transform: translateX(0);
+            transform: translateX(0)
+}
+    .navigation.expanded {
+      width: 100vw;
+      height: 100vh;
+    }
+      .navigation.expanded a {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+      }
+        .navigation.expanded .logoButton span {
+          display: inline-block;
+          -webkit-transform: translateX(400%);
+                  transform: translateX(400%);
+          opacity: 1;
+          -webkit-animation: showUp 0.5s forwards;
+                  animation: showUp 0.5s forwards;
+        }
+  }
 .navigation a {
     -webkit-transform: translateX(400%);
             transform: translateX(400%);
@@ -585,6 +635,12 @@ section ul li a .imgLink img {
     overflow: hidden;
     font-size: 2rem;
   }
+@media (min-width: 320px) and (max-width: 767px) {
+.navigation .logoButton {
+      width: 93%;
+      height: 3rem
+  }
+    }
 .navigation .logoButton span {
       display: none;
       -webkit-transform: translateY(400%);
@@ -658,6 +714,45 @@ section ul li a .imgLink img {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
+}
+.back-arrow {
+  position: absolute;
+  top: 15px;
+  left: 10vw;
+  color: #fff;
+  text-decoration: none;
+}
+article {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  left: 0 !important;
+  top: 0 !important;
+  -webkit-transform: translate(0, 0) !important;
+          transform: translate(0, 0) !important;
+  overflow: scroll;
+}
+article h1 {
+    margin-bottom: 20px;
+  }
+article img {
+    height: auto;
+    width: auto;
+  }
+/* desktop */
+@media (min-width: 767px) {
 }
 /* @import "header.css";
 @import "nav.css";

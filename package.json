@@ -33,7 +33,8 @@
     "watch:css": "postcss src/styles/main.css -o src/App.css -w",
     "dev": "npm-run-all -p watch:css start-js",
     "start": "react-scripts start",
-    "build-js": "react-scripts build"
+    "build-js": "react-scripts build",
+    "start-js": "react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"

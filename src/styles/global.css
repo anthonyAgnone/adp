@@ -217,3 +217,21 @@ main {
     transition: all 2s ease;
   }
 }
+
+.mobw50 {
+  @media (min-width: 320px) and (max-width: 767px) {
+    width: 100vw;
+  }
+}
+
+.mobNorm {
+  @media (min-width: 320px) and (max-width: 767px) {
+    flex-direction: column;
+  }
+}
+
+.mobDNone {
+  @media (min-width: 320px) and (max-width: 767px) {
+    display: none;
+  }
+}

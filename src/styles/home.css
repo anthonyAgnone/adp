@@ -5,6 +5,22 @@ section {
     li {
       height: 100vh;
       margin-bottom: 40vh;
+      @media (min-width: 320px) and (max-width: 767px) {
+        margin-bottom: 10vh;
+        p {
+          margin-top: 0;
+          margin-bottom: 1rem;
+          position: absolute;
+          top: 75%;
+          left: 0;
+          width: 100%;
+          text-align: center;
+          background: rgba(30, 30, 30, 0.45);
+          height: 12%;
+          font-size: 2em;
+          padding-top: 7px;
+        }
+      }
       a {
         .imgLink {
           height: 60%;

@@ -9,17 +9,6 @@
   background-color: #000;
   overflow: hidden;
   transition: width 0.8s ease;
-  @media (min-width: 320px) and (max-width: 767px) {
-    width: 100vw;
-    height: 5vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10000;
-    overflow: hidden;
-    transition: all 0.8s ease;
-    transform: translateX(0);
-  }
   &.expanded {
     width: 30vw;
     a {
@@ -31,6 +20,30 @@
         transform: translateX(400%);
         opacity: 1;
         animation: showUp 0.5s forwards;
+      }
+    }
+  }
+  @media (min-width: 320px) and (max-width: 767px) {
+    width: 100vw;
+    height: 20vw;
+    position: fixed;
+    left: 0;
+    z-index: 10000;
+    transition: all 0.8s ease;
+    transform: translateX(0);
+    &.expanded {
+      width: 100vw;
+      height: 100vh;
+      a {
+        transform: translateX(0);
+      }
+      .logoButton {
+        span {
+          display: inline-block;
+          transform: translateX(400%);
+          opacity: 1;
+          animation: showUp 0.5s forwards;
+        }
       }
     }
   }
@@ -51,6 +64,10 @@
     white-space: nowrap;
     overflow: hidden;
     font-size: 2rem;
+    @media (min-width: 320px) and (max-width: 767px) {
+      width: 93%;
+      height: 3rem;
+    }
     span {
       display: none;
       transform: translateY(400%);

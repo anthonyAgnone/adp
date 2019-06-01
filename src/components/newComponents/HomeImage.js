@@ -85,6 +85,7 @@ const HomeImage = ({ id, slug, title, handle, division }) => {
               : 'https://via.placeholder.com/150?text=+'
           }
         />
+        <p class="mobOnly">{title}</p>
       </animated.div>
     </Link>
   )

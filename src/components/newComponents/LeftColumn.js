@@ -14,7 +14,7 @@ const LeftColumn = ({ id, coverImage, date, slug, title, i }) => {
       </li>
     )
   return (
-    <li className="preview flex f-d-c justify-content-center align-items-center">
+    <li className="preview flex f-d-c justify-content-center align-items-center mobDNone">
       <Link to={`/post/${id}`} onClick={() => hideHeader()}>
         <h1 className="font3">{title}</h1>
         <FormattedDate className="font1 italic text-left" date={date} />
