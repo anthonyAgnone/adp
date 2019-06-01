@@ -8,12 +8,12 @@ import Header from './newComponents/Header'
 
 const App = props => (
   <div className="app-wrap">
-    {window.location.href.indexOf('post') < 1 ? <Header /> : ''}
+    {props.location.pathname.length > 1 ? '' : <Header />}
     <main>
       <Route exact path="/" component={Home} />
       <Route path="/post/:slug" component={Post} />
     </main>
-    <Navigation />
+    {props.location.pathname.length > 1 ? <Navigation page={'notHome'} /> : <Navigation page={'home'} />}
   </div>
 )
 

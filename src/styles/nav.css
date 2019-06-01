@@ -23,6 +23,26 @@
       }
     }
   }
+  &.notHome {
+    left: 0;
+    width: 8vw;
+    transform: translateX(0);
+    z-index: 9999;
+    &.expanded {
+      width: 50vw;
+      a {
+        transform: translateX(0);
+      }
+      .logoButton {
+        span {
+          display: inline-block;
+          transform: translateX(400%);
+          opacity: 1;
+          animation: showUp 0.5s forwards;
+        }
+      }
+    }
+  }
   @media (min-width: 320px) and (max-width: 767px) {
     width: 100vw;
     height: 20vw;

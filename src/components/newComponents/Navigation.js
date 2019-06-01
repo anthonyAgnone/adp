@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Logo from './Logo'
-const Navigation = () => {
+const Navigation = ({ page }) => {
   const [expanded, setExpanded] = useState(false)
 
   const handleClick = () => {
@@ -11,27 +11,25 @@ const Navigation = () => {
     <nav
       className={`navigation ${
         expanded ? 'expanded' : ''
-      } flex f-d-c justify-content-center align-items-center`}>
-      <NavLink className='mb1 mt1' to='/' onClick={handleClick}>
+      } flex f-d-c justify-content-center align-items-center ${page}`}
+    >
+      <NavLink className="mb1 mt1" to="/" onClick={handleClick}>
         Home
       </NavLink>
-      <NavLink className='mb1 mt1' to='/about' onClick={handleClick}>
+      <NavLink className="mb1 mt1" to="/about" onClick={handleClick}>
         About Me
       </NavLink>
-      <NavLink className='mb3' to='/process' onClick={handleClick}>
+      <NavLink className="mb3" to="/process" onClick={handleClick}>
         My Process
       </NavLink>
       <Logo handleClick={handleClick} expanded={expanded} />
-      <NavLink className='mt3' to='/commissions' onClick={handleClick}>
+      <NavLink className="mt3" to="/commissions" onClick={handleClick}>
         Commissions
       </NavLink>
-      <NavLink
-        className='mt1 mb1'
-        to='http://www.patreon.com'
-        onClick={handleClick}>
+      <NavLink className="mt1 mb1" to="http://www.patreon.com" onClick={handleClick}>
         Patreon
       </NavLink>
-      <NavLink className='mt1 mb1' to='/contact' onClick={handleClick}>
+      <NavLink className="mt1 mb1" to="/contact" onClick={handleClick}>
         Contact
       </NavLink>
     </nav>

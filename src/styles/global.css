@@ -235,3 +235,9 @@ main {
     display: none;
   }
 }
+
+.mobOnly {
+  @media (min-width: 767px) {
+    display: none;
+  }
+}
