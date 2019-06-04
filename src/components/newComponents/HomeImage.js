@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSpring, animated } from 'react-spring'
+import GraphImg from 'graphcms-image'
 
 const calc = (x, y, division) => [
   -(y - window.innerHeight * division) / 150,
@@ -52,7 +53,6 @@ const HomeImage = ({ id, slug, title, handle, division }) => {
   //     }
   //   }
   // }
-
   return (
     <Link
       style={{ transform: `translate(0px, ${yTrans * 0.3}px)` }}
@@ -76,15 +76,7 @@ const HomeImage = ({ id, slug, title, handle, division }) => {
           zIndex: currentZ
         }}
       >
-        <img
-          className="homeImage"
-          alt={title}
-          src={
-            handle
-              ? `https://media.graphcms.com/resize=w:150,h:150,fit:crop/${handle}`
-              : 'https://via.placeholder.com/150?text=+'
-          }
-        />
+        <img className="homeImage" alt={title} src={`https://media.graphcms.com/${handle}`} />
         <p className="mobOnly">{title}</p>
       </animated.div>
     </Link>
