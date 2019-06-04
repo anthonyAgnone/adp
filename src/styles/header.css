@@ -1,0 +1,76 @@
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+  margin-bottom: 80vh;
+  position: relative;
+  .blackBar {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5vw;
+    height: 100%;
+    background-color: #000;
+    z-index: 3;
+    @media (min-width: 767px) {
+      display: none;
+    }
+  }
+  .backgroundImage {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: 105%;
+    background-repeat: no-repeat;
+    transition: all 0.8s ease;
+    @media (min-width: 320px) and (max-width: 767px) {
+      background-size: cover;
+    }
+  }
+  .bottom-left {
+    z-index: 1;
+    background-image: url('./images/backLeft.png');
+    background-position: top left;
+    @media (min-width: 320px) and (max-width: 767px) {
+      left: -50%;
+    }
+  }
+  .bottom-right {
+    z-index: 1;
+    background-image: url('./images/backRight.png');
+    background-position: top right;
+    @media (min-width: 320px) and (max-width: 767px) {
+      left: 50%;
+    }
+  }
+  .top-right {
+    z-index: 2;
+    background-image: url('./images/rightSkull.png');
+    background-position: 29% 0;
+    @media (min-width: 320px) and (max-width: 767px) {
+      background-position: 51% 50%;
+    }
+    &.expanded {
+      left: 12.5%;
+      @media (min-width: 320px) and (max-width: 767px) {
+        left: 0;
+      }
+    }
+  }
+  .top-left {
+    z-index: 2;
+    background-image: url('./images/leftSkull.png');
+    background-position: 21% 0;
+    @media (min-width: 320px) and (max-width: 767px) {
+      background-position: 45.5% 50%;
+    }
+    &.expanded {
+      left: -12.5%;
+      @media (min-width: 320px) and (max-width: 767px) {
+        left: 0;
+      }
+    }
+  }
+}

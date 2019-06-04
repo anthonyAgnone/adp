@@ -5,6 +5,10 @@ const Navigation = ({ page }) => {
   const [expanded, setExpanded] = useState(false)
 
   const handleClick = () => {
+    if (document.querySelector('.full-screen')) {
+      document.querySelector('.top-left').classList.toggle('expanded')
+      document.querySelector('.top-right').classList.toggle('expanded')
+    }
     setExpanded(!expanded)
   }
   return (
