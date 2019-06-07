@@ -9,19 +9,23 @@ const About = ({ data: { loading, error, authors } }) => {
       document.querySelector('body').className = 'about'
     })
     return (
-      <div className="pageWrapper">
+      <div className='pageWrapper'>
         {authors.map(author => (
-          <div className="authorWrapper" key={author.id}>
-            <div className="infoHeader">
-              <img
-                className="avatar"
-                alt={`${author.name} avatar`}
-                src={`https://media.graphcms.com/resize=w:400,h:400,fit:crop/${author.avatar.handle}`}
-              />
+          <div className='authorWrapper' key={author.id}>
+            <div className='infoHeader'>
+              {author.avatar ? (
+                <img
+                  className='avatar'
+                  alt={`${author.name} avatar`}
+                  src={`https://media.graphcms.com/${author.avatar.handle}`}
+                />
+              ) : (
+                ''
+              )}
               <h1>My name is {author.name}</h1>
             </div>
-            <div className="bibliography">
-              <p>{author.bibliography}</p>
+            <div className='bibliography'>
+              <p>{author.bibliography ? author.bibliography : ''}</p>
             </div>
           </div>
         ))}

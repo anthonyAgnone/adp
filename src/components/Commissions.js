@@ -4,7 +4,8 @@ import gql from 'graphql-tag'
 
 const Commissions = data => {
   if (data.error) return <h1>Error fetching posts!</h1>
-  if (data.sitePage) return <section class="pageWrapper">{data.sitePage.name}</section>
+  if (data.sitePage)
+    return <section className='pageWrapper'>{data.sitePage.name}</section>
   return <h2>Loading data...</h2>
 }
 export const sitePages = gql`

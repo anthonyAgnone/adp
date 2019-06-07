@@ -9,15 +9,28 @@ const LeftColumn = ({ id, coverImage, date, slug, title, i }) => {
   }
   if (i % 2 === 0)
     return (
-      <li className={`${slug}li preview flex f-d-c justify-content-center align-items-center`} id={`${slug}li`}>
-        <HomeImage slug={slug} i={i} id={id} title={title} {...coverImage} division={0.25} />
+      <li
+        className={`${slug}li preview flex f-d-c justify-content-center align-items-center`}
+        id={`${slug}li`}>
+        <HomeImage
+          slug={slug}
+          i={i}
+          id={id}
+          title={title}
+          {...coverImage}
+          division={0.25}
+        />
       </li>
     )
   return (
-    <li className="preview flex f-d-c justify-content-center align-items-center mobDNone">
+    <li className='preview flex f-d-c justify-content-center align-items-center mobDNone'>
       <Link to={`/post/${id}`} onClick={() => hideHeader()}>
-        <h1 className="font3">{title}</h1>
-        <FormattedDate className="font1 italic text-left" date={date} />
+        <h1 className='font3'>{title ? title : ''}</h1>
+        {date ? (
+          <FormattedDate className='font1 italic text-left' date={date} />
+        ) : (
+          ''
+        )}
       </Link>
     </li>
   )

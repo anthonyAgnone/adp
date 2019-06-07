@@ -8,16 +8,16 @@ const Post = ({ data: { loading, error, post } }) => {
   if (error) return <h1>Error fetching the post!</h1>
   if (!loading) {
     return (
-      <div class="postWrapper">
-        <Link className="back-arrow" to="/">
+      <div className='postWrapper'>
+        <Link className='back-arrow' to='/'>
           {' '}
           &lt; Back{' '}
         </Link>
-        <article className="center-both">
-          <h1>{post.title}</h1>
+        <article className='center-both'>
+          <h1>{post.title ? post.title : 'unnamed'}</h1>
           <div>
             <img
-              alt={post.title}
+              alt={post.title ? post.title : 'a comic book character'}
               src={
                 post.coverImage
                   ? `https://media.graphcms.com/${post.coverImage.handle}`
@@ -25,7 +25,10 @@ const Post = ({ data: { loading, error, post } }) => {
               }
             />
           </div>
-          <Markdown source={post.content} escapeHtml={false} />
+          <Markdown
+            source={post.content ? post.content : ''}
+            escapeHtml={false}
+          />
         </article>
       </div>
     )
