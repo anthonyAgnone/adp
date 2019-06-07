@@ -578,6 +578,8 @@ section ul li a .imgLink img {
   z-index: 1000;
   background-color: #000;
   overflow: hidden;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
 }
 .navigation.expanded {
     width: 30vw;

@@ -8,6 +8,7 @@
   z-index: 1000;
   background-color: #000;
   overflow: hidden;
+  transition: all 0.8s ease;
   &.expanded {
     width: 30vw;
     a {
