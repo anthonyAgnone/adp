@@ -31,6 +31,7 @@ const About = ({ data: { loading, error, authors } }) => {
         ))}
         <h1>MY RESUME</h1>
         <p>coming soon...</p>
+        <a href="/">Back to Home</a>
       </div>
     )
   }
