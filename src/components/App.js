@@ -11,17 +11,21 @@ import Navigation from './newComponents/Navigation'
 import Header from './newComponents/Header'
 
 const App = props => (
-  <div className="app-wrap">
+  <div className='app-wrap'>
     {props.location.pathname.length > 1 ? '' : <Header />}
     <main>
-      <Route exact path="/" component={Home} />
-      <Route path="/post/:slug" component={Post} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/process" component={Process} />
-      <Route exact path="/commissions" component={Commissions} />
-      <Route exact path="/contact" component={Contact} />
+      <Route exact path='/' component={Home} />
+      <Route path='/post/:slug' component={Post} />
+      <Route exact path='/about' component={About} />
+      <Route exact path='/process' component={Process} />
+      <Route exact path='/commissions' component={Commissions} />
+      <Route exact path='/contact' component={Contact} />
     </main>
-    {props.location.pathname.length > 1 ? <Navigation page={'notHome'} /> : <Navigation page={'home'} />}
+    {props.location.pathname.length > 1 ? (
+      <Navigation page={'notHome'} />
+    ) : (
+      <Navigation page={'home'} />
+    )}
   </div>
 )
 

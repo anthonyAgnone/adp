@@ -3,6 +3,7 @@ import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
 
 const About = ({ data: { loading, error, authors } }) => {
+  /* // Fancy Agnone Stuff, need access to graphcms to continue using
   if (error) return <h1>Error fetching authors!</h1>
   if (!loading) {
     useEffect(() => {
@@ -31,11 +32,32 @@ const About = ({ data: { loading, error, authors } }) => {
         ))}
         <h1>MY RESUME</h1>
         <p>coming soon...</p>
-        <a href="/">Back to Home</a>
+        <a href='/'>Back to Home</a>
       </div>
     )
   }
   return <h2>Loading author...</h2>
+  */
+
+  // Not Fancy Ted stuff, until I get access to graphcms
+  return (
+    <div className='pageWrapper'>
+      <h1>My Name is Anthony DePietro</h1>
+      <p>
+        After Graduating High School in 2010 at New Castle High, I majored in
+        Cinema/Animation at Ednboro University where I obtained a Bachelors
+        Degree in Fine Arts in 2014.
+      </p>
+      <p>
+        I currently work in Graphic Design, Advertising, and Media, but I am
+        also a Freelance Illustrator on the side.{' '}
+      </p>
+      <p>
+        While I am an unabahsed skull-enthusiast, I am comfortable in a variety
+        of styles and mediums.
+      </p>
+    </div>
+  )
 }
 
 export const authors = gql`
