@@ -12,7 +12,6 @@ import Header from './newComponents/Header'
 
 const App = props => (
   <div className='app-wrap'>
-    {props.location.pathname.length > 1 ? '' : <Header />}
     <main>
       <Route exact path='/' component={Home} />
       <Route path='/post/:slug' component={Post} />
@@ -21,11 +20,6 @@ const App = props => (
       <Route exact path='/commissions' component={Commissions} />
       <Route exact path='/contact' component={Contact} />
     </main>
-    {props.location.pathname.length > 1 ? (
-      <Navigation page={'notHome'} />
-    ) : (
-      <Navigation page={'home'} />
-    )}
   </div>
 )
 

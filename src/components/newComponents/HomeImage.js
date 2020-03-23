@@ -58,39 +58,12 @@ const HomeImage = ({ id, slug, title, handle, division }) => {
   return (
     <Link
       style={{ transform: `translate(0px, ${yTrans * 0.3}px)` }}
-      className='w-h100 flex f-d-c justify-content-center'
       to={`/post/${id}`}>
-      <animated.div
-        className='imgLink'
-        onMouseMove={({ clientX: x, clientY: y }) =>
-          set({ xys: calc(x, y, division) })
-        }
-        onMouseEnter={() => {
-          set({ boxShadow: 0.8 })
-          setTimeout(
-            () => (document.querySelector('main').style.zIndex = 9999),
-            200
-          )
-        }}
-        onMouseLeave={() => {
-          set({ xys: [0, 0, 1], boxShadow: 0 })
-          setTimeout(
-            () => (document.querySelector('main').style.zIndex = 0),
-            300
-          )
-        }}
-        style={{
-          transform: props.xys.interpolate(trans),
-          boxShadow: props.boxShadow.interpolate(shadowo),
-          zIndex: currentZ
-        }}>
         <img
           className='homeImage'
           alt={title ? title : ''}
           src={handle ? `https://media.graphcms.com/${handle}` : ''}
         />
-        <p className='mobOnly'>{title ? title : ''}</p>
-      </animated.div>
     </Link>
   )
 }
